@@ -55,8 +55,7 @@ account = Account(client)
 
 app.secret_key = os.urandom(24)  
 
-api_key = "AIzaSyA8QPdI8bDxcx7qYl9gwnsjpAEGKAFv_go"
-genai.configure(api_key=api_key)
+genai.configure(api_key=os.getenv('GENAI_API_KEY'))
 
 def get_gemini_response(input_prompt, image):
     model = genai.GenerativeModel('gemini-1.5-flash')
