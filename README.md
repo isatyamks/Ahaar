@@ -19,31 +19,31 @@ The inspiration for Ahaar comes from the urgent need to address the growing issu
 ## Tech Stack  
 
 1. **AI Models**:
-   - Gemini Model
-   - Foodvisor Model
-   - Custom-trained model focused on Indian foods (in progress)
+   - **Gemini Model**: Used for initial food detection and classification.
+   - **Foodvisor Model**: Provides detailed nutritional insights about various foods.
+   - **Custom-trained model**: In progress for enhanced recognition of Indian foods.
 
 2. **Frameworks**:
-   - Flask (backend framework)
+   - **Flask**: Serves as the backend framework to handle API requests.
 
 3. **Libraries**:
-   - TensorFlow (for model building and training)
-   - NumPy (for data manipulation)
-   - Pandas (for data analysis)
-   - Seaborn (for visualizing model performance metrics)
+   - **TensorFlow**: Utilized for building and training the AI models.
+   - **NumPy**: Employed for efficient data manipulation.
+   - **Pandas**: Used for data analysis and handling user-generated data.
+   - **Seaborn**: Implements visualizations for model performance metrics.
 
 4. **Frontend Technologies**:
-   - HTML
-   - CSS
-   - JavaScript
-5. **Usage of Appwrite**:
-   - Appwrite Authentication: Used for managing user sign-ups, logins, and secure access to personal data.
-   - Appwrite Database: Stores user-generated data on food calories, fats, proteins, and other nutritional information.
+   - **HTML**: Structures the web application’s content.
+   - **CSS**: Styles the web application for an appealing user interface.
+   - **JavaScript**: Adds interactivity to the web application.
 
+5. **User Authentication**:
+   - **Appwrite Authentication**: Manages user sign-ups, logins, and secure access to personal data.
+   - **Appwrite Database**: Stores user-generated data on food calories, fats, proteins, and other nutritional information.
 
 ## Project Repo  
 
-[https://github.com/isatyamks/htf24-hackathon-submissions/tree/Ahaar](https://github.com/isatyamks/Ahaar)
+[https://github.com/isatyamks/htf24-hackathon-submissions/tree/Ahaar](https://github.com/isatyamks/htf24-hackathon-submissions/tree/Ahaar)
 
 ## Demo Video/Photos  
 
