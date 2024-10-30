@@ -140,15 +140,14 @@ def login():
 def signup():
     if request.method == 'POST':
         email = request.form['email']
-        phone = request.form['phone']
         password = request.form['password']
-        name = request.form['name']
+        name = request.form['username']
         
         try:
-            result = users.create(ID.unique(), email=email, phone=phone, password=password, name=name)
+            result = users.create(ID.unique(), email=email, password=password, name=name)
             session['user'] = email  # Save user info in session
             flash('Signup successful!', 'success')
-            return redirect(url_for('home'))
+            return redirect(url_for('index'))
         except Exception as e:
             flash(str(e), 'error')
     
