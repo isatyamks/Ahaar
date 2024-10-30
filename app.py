@@ -1,13 +1,58 @@
+# Importing useful libraries
+
 from dotenv import load_dotenv
 import os
 from functools import wraps
 import google.generativeai as genai
-from flask import Flask, render_template, request, redirect, url_for, jsonify, session  # Import session
+from flask import Flask, render_template, request, redirect, url_for, jsonify, session  
 from PIL import Image
+from appwrite.client import Client
+from appwrite.services.users import Users
+from appwrite.services.account import Account
+from appwrite.id import ID
+
 
 load_dotenv()
-
 app = Flask(__name__)
+
+
+
+
+
+
+
+
+
+
+client = Client()
+(client
+    .set_endpoint(os.getenv('APPWRITE_ENDPOINT'))
+    .set_project(os.getenv('APPWRITE_PROJECT_ID'))
+    .set_key(os.getenv('APPWRITE_API_KEY'))
+    .set_self_signed(True)
+)
+users = Users(client)
+
+
+
+account = Account(client)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.secret_key = os.urandom(24)  
 
 api_key = "AIzaSyA8QPdI8bDxcx7qYl9gwnsjpAEGKAFv_go"
@@ -38,6 +83,8 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
+
+
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
@@ -45,7 +92,8 @@ def signup():
         email = request.form.get('email')
         password = request.form.get('password')
         try:
-            result = users.create(ID.unique(), email=email, password=password, name=name)
+            # Create a new user in Appwrite
+            account.create(ID.unique(), email=email, password=password, name=name)
             return redirect(url_for('login'))
         except Exception as e:
             return render_template('signup.html', error=str(e))
@@ -57,13 +105,23 @@ def login():
         email = request.form.get('email')
         password = request.form.get('password')
         try:
-            # Appwrite authentication logic
-            # After successful authentication, set session['user'] = user details
-            session['user'] = email  # Example of setting a session variable
-            return redirect(url_for('index'))
+            # Pass email and password as positional arguments
+            session_response = account.create_session(email, password)
+
+            # Check if session creation was successful
+            if session_response and session_response.get('$id'):
+                session['user'] = email
+                return redirect(url_for('index'))
+            else:
+                error_message = "Login failed: Invalid credentials."
+                return render_template('login.html', error=error_message)
+
         except Exception as e:
-            return render_template('login.html', error=str(e))
+            error_message = f"Login error: {str(e)}"
+            return render_template('login.html', error=error_message)
+
     return render_template('login.html')
+
 
 @app.route('/', methods=['GET', 'POST'])
 @login_required
@@ -112,6 +170,13 @@ def index():
 
         return jsonify(response=response)
     return render_template('index.html')
+
+
+
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
