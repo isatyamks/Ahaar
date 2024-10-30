@@ -1,3 +1,6 @@
+/* Import the Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 body {
     margin: 0;
     padding: 0;
@@ -5,7 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif; /* Changed to Poppins font */
     background: url('bg.png') no-repeat center center/cover;
 }
 
@@ -25,6 +28,7 @@ body {
 .signup-card h1 {
     margin-bottom: 20px;
     font-size: 24px;
+    font-weight: 600; /* Use a heavier font weight */
 }
 
 .signup-card label {
@@ -36,8 +40,8 @@ body {
 }
 
 .signup-card input {
-    width: 100%;
-    padding: 10px;
+    width: 90%;
+    padding: 12px; /* Match button padding */
     margin-top: 5px;
     border-radius: 8px;
     border: none;
@@ -49,19 +53,21 @@ body {
 /* Submit button */
 .signup-card button {
     width: 100%;
-    padding: 10px;
+    padding: 12px; /* Increase padding for consistency */
     margin-top: 20px;
     border: none;
     border-radius: 8px;
     background: #4caf50;
     color: #fff;
-    font-size: 16px;
+    font-size: 16px; /* Ensure font size is consistent */
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s; /* Added transform for button hover effect */
+    box-sizing: border-box; /* Ensure padding doesn't affect total width */
 }
 
 .signup-card button:hover {
     background: #3e8e41;
+    transform: translateY(-2px); /* Added slight lift effect on hover */
 }
 
 /* Log in link */

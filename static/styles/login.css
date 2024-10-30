@@ -1,3 +1,6 @@
+/* Import the Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 body {
     margin: 0;
     padding: 0;
@@ -5,7 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif; /* Updated font */
     background: url('bg.png') no-repeat center center/cover;
     background-attachment: scroll; 
 }
@@ -17,7 +20,7 @@ body {
     border-radius: 15px;
     padding: 40px;
     width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Slightly enhanced shadow */
     color: #fff;
     text-align: center;
 }
@@ -25,7 +28,8 @@ body {
 /* Form styling */
 .login-card h1 {
     margin-bottom: 20px;
-    font-size: 24px;
+    font-size: 26px; /* Increased font size */
+    font-weight: 600; /* Bold font for title */
 }
 
 .login-card label {
@@ -36,9 +40,25 @@ body {
     margin-top: 10px;
 }
 
-.login-card input {
+/* Button styling to match input field height */
+.login-card button {
     width: 100%;
-    padding: 10px;
+    padding: 12px; /* Consistent with input field padding */
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    background: #2196f3;
+    color: #fff;
+    font-size: 16px; /* Ensure font size is consistent */
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s; /* Added transform for animation */
+    box-sizing: border-box; /* Ensure padding doesn't affect total width */
+}
+
+/* Input field styling */
+.login-card input {
+    width: 90%;
+    padding: 12px; /* Same padding as the button */
     margin-top: 5px;
     border-radius: 8px;
     border: none;
@@ -47,22 +67,10 @@ body {
     color: #333;
 }
 
-/* Submit button */
-.login-card button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 8px;
-    background: #2196f3;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
 
 .login-card button:hover {
     background: #0b79d0;
+    transform: translateY(-2px); /* Lift effect on hover */
 }
 
 /* Sign up link */
