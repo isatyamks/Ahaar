@@ -1,0 +1,102 @@
+/* Full-screen background with glass effect */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: url('bg.png') no-repeat center center/cover;
+}
+
+/* Glass effect container */
+.container {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    text-align: center;
+}
+
+/* Side-by-side layout for result */
+.result-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.image-preview img {
+    max-width: 250px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#responseContainer {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    color: #333;
+    max-width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Button styling */
+#logoutButton, #uploadForm button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#logoutButton {
+    background: #f44336;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#logoutButton:hover {
+    background: #d32f2f;
+}
+
+#uploadForm button {
+    background: #2196f3;
+}
+
+#uploadForm button:hover {
+    background: #0b79d0;
+}
+
+/* Form styling */
+#uploadForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#uploadForm input[type="file"] {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
