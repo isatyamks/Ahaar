@@ -34,7 +34,7 @@ users = Users(client)
 
 
 
-api_key = "AIzaSyA8QPdI8bDxcx7qYl9gwnsjpAEGKAFv_go"
+api_key = os.getenv('GENAI_API_KEY')
 genai.configure(api_key=api_key)
 
 def get_gemini_response(input_prompt, image):
