@@ -43,7 +43,7 @@ The inspiration for Ahaar comes from the urgent need to address the growing issu
 
 ## Project Repo  
 
-[https://github.com/isatyamks/htf24-hackathon-submissions/tree/Ahaar](https://github.com/isatyamks/htf24-hackathon-submissions/tree/Ahaar)
+[https://github.com/isatyamks/Ahaar](https://github.com/isatyamks/htf24-hackathon-submissions/tree/Ahaar)
 
 ## Demo Video/Photos  
 
