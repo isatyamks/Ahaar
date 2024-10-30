@@ -36,6 +36,10 @@ The inspiration for Ahaar comes from the urgent need to address the growing issu
    - HTML
    - CSS
    - JavaScript
+5. **Usage of Appwrite**:
+   - Appwrite Authentication: Used for managing user sign-ups, logins, and secure access to personal data.
+   - Appwrite Database: Stores user-generated data on food calories, fats, proteins, and other nutritional information.
+
 
 ## Project Repo  
 
