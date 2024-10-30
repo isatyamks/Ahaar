@@ -82,7 +82,7 @@ def index():
         if file.filename == '':
             return redirect(request.url)
 
-        image_path = 'static/' + file.filename
+        image_path = 'data/' + file.filename
         file.save(image_path)
 
         input_prompt = """
