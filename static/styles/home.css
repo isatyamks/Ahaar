@@ -8,81 +8,29 @@ body {
     min-height: 100vh;
     font-family: Arial, sans-serif;
     background: url('bg.png') no-repeat center center/cover;
+    backdrop-filter: blur(10px);
 }
 
 /* Glass effect container */
 .container {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
     border-radius: 15px;
     padding: 40px;
-    max-width: 600px;
-    width: 90%;
+    width: 600px; /* Increased width for a wider box */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     color: #fff;
     text-align: center;
 }
 
-/* Side-by-side layout for result */
-.result-container {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 20px;
+/* Heading styles */
+.container h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #e0e0e0;
 }
 
-.image-preview img {
-    max-width: 250px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-#responseContainer {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 8px;
-    text-align: left;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
-    color: #333;
-    max-width: 300px;
-    max-height: 400px;
-    overflow-y: auto;
-}
-
-/* Button styling */
-#logoutButton, #uploadForm button {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-#logoutButton {
-    background: #f44336;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-#logoutButton:hover {
-    background: #d32f2f;
-}
-
-#uploadForm button {
-    background: #2196f3;
-}
-
-#uploadForm button:hover {
-    background: #0b79d0;
-}
-
-/* Form styling */
+/* Form styles */
 #uploadForm {
     display: flex;
     flex-direction: column;
@@ -99,4 +47,68 @@ body {
     border: none;
     cursor: pointer;
     outline: none;
+}
+
+#uploadForm button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background: #2196f3;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#uploadForm button:hover {
+    background: #0b79d0;
+}
+
+/* Response container */
+#responseContainer {
+    margin-top: 10px;
+    color: #e0e0e0;
+}
+
+#responseContainer h2 {
+    font-size: 18px; /* Slightly smaller font size */
+    margin-bottom: 8px; /* Reduced margin to save space */
+}
+
+#responseText {
+    background: rgba(4, 0, 255, 0.1);
+    padding: 10px; /* Reduced padding to save vertical space */
+    border-radius: 8px;
+    text-align: left;
+    white-space: pre-wrap;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px; /* Smaller font size */
+    color: #000000;
+    width: 90%; /* Increased width to make use of horizontal space */
+    max-width: 1000px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    line-height: 1.3; /* Compact line height for reduced vertical spacing */
+    max-height: 300px; /* Maximum height to limit scrolling */
+    overflow-y: auto; /* Enables vertical scrolling within the container */
+}
+
+
+
+#logoutButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background: #f44336; /* Red color for logout */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#logoutButton:hover {
+    background: #d32f2f; /* Darker red on hover */
 }
