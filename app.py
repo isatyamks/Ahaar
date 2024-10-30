@@ -118,6 +118,11 @@ def index():
         return jsonify(response=response)
     return render_template('index.html')
 
+
+
+
+
+
 # Route for login page
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -152,6 +157,9 @@ def signup():
             flash(str(e), 'error')
     
     return render_template('signup.html')
+
+
+
 
 @app.route('/logout', methods=['POST'])
 @login_required
