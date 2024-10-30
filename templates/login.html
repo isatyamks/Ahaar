@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <style>
+        /* Full-screen background */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: url('../static/bg3.jpg') no-repeat center center/cover;
+        }
+
+        /* Glass effect card */
+        .login-card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Form styling */
+        .login-card h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .login-card label {
+            display: block;
+            text-align: left;
+            font-size: 14px;
+            color: #e0e0e0;
+            margin-top: 10px;
+        }
+
+        .login-card input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Submit button */
+        .login-card button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 8px;
+            background: #2196f3;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .login-card button:hover {
+            background: #0b79d0;
+        }
+
+        /* Sign up link */
+        .login-card p {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #e0e0e0;
+        }
+
+        .login-card a {
+            color: #4caf50;
+            text-decoration: none;
+        }
+
+        .login-card a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Error message */
+        .error {
+            color: #ff6666;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <h1>Log In</h1>
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+        <form method="POST">
+            <label for="email">Email:</label>
+            <input type="email" name="email" required><br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" required><br>
+            <button type="submit">Log In</button>
+        </form>
+        <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+    </div>
+</body>
+</html>
