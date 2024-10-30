@@ -1,25 +1,16 @@
-# Importing useful libraries
-
-from dotenv import load_dotenv
-import os
-from functools import wraps
-import google.generativeai as genai
-from flask import Flask, render_template, request, redirect, url_for, jsonify, session  
-from PIL import Image
+from flask import Flask, render_template, request, redirect, url_for, session, flash,jsonify
+from flask_session import Session
 from appwrite.client import Client
 from appwrite.services.users import Users
-from appwrite.services.account import Account
 from appwrite.id import ID
-
-
-load_dotenv()
+from functools import wraps
+import google.generativeai as genai
+import os
+# Initialize Flask app
 app = Flask(__name__)
-
-
-
-
-
-
+app.secret_key = 'your_secret_key'  # Change this to a random secret key
+app.config['SESSION_TYPE'] = 'filesystem'
+Session(app)
 
 
 
@@ -35,7 +26,6 @@ users = Users(client)
 
 
 
-account = Account(client)
 
 
 
@@ -44,18 +34,8 @@ account = Account(client)
 
 
 
-
-
-
-
-
-
-
-
-
-app.secret_key = os.urandom(24)  
-
-genai.configure(api_key=os.getenv('GENAI_API_KEY'))
+api_key = "AIzaSyA8QPdI8bDxcx7qYl9gwnsjpAEGKAFv_go"
+genai.configure(api_key=api_key)
 
 def get_gemini_response(input_prompt, image):
     model = genai.GenerativeModel('gemini-1.5-flash')
@@ -74,6 +54,12 @@ def input_image_setup(image_path):
     ]
     return image_parts
 
+
+
+
+
+
+# Decorator to require login
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -82,45 +68,7 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
-
-
-@app.route('/signup', methods=['GET', 'POST'])
-def signup():
-    if request.method == 'POST':
-        name = request.form.get('fullname')
-        email = request.form.get('email')
-        password = request.form.get('password')
-        try:
-            # Create a new user in Appwrite
-            account.create(ID.unique(), email=email, password=password, name=name)
-            return redirect(url_for('login'))
-        except Exception as e:
-            return render_template('signup.html', error=str(e))
-    return render_template('signup.html')
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        email = request.form.get('email')
-        password = request.form.get('password')
-        try:
-            # Pass email and password as positional arguments
-            session_response = account.create_session(email, password)
-
-            # Check if session creation was successful
-            if session_response and session_response.get('$id'):
-                session['user'] = email
-                return redirect(url_for('index'))
-            else:
-                error_message = "Login failed: Invalid credentials."
-                return render_template('login.html', error=error_message)
-
-        except Exception as e:
-            error_message = f"Login error: {str(e)}"
-            return render_template('login.html', error=error_message)
-
-    return render_template('login.html')
-
+# Route for home page
 
 @app.route('/', methods=['GET', 'POST'])
 @login_required
@@ -170,12 +118,90 @@ def index():
         return jsonify(response=response)
     return render_template('index.html')
 
+# Route for login page
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        
+        # Authenticate the user (this should be implemented according to Appwrite API)
+        # Example: Use the Appwrite login method here
+        
+        # Assuming login was successful:
+        session['user'] = email  # Save user info in session
+        flash('Login successful!', 'success')
+        return redirect(url_for('index'))
+    
+    return render_template('login.html')
+
+# Route for signup page
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        email = request.form['email']
+        phone = request.form['phone']
+        password = request.form['password']
+        name = request.form['name']
+        
+        try:
+            result = users.create(ID.unique(), email=email, phone=phone, password=password, name=name)
+            session['user'] = email  # Save user info in session
+            flash('Signup successful!', 'success')
+            return redirect(url_for('home'))
+        except Exception as e:
+            flash(str(e), 'error')
+    
+    return render_template('signup.html')
+
+@app.route('/logout', methods=['POST'])
+@login_required
+def logout():
+    session.pop('user', None)  # Optional: Remove user from session
+    flash('You have been logged out.', 'info')  # Flash a message
+    return redirect(url_for('login'))  # Redirect to the login page
 
 
-
-
-
-
-
+# Run the application
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+client = Client()
+(client
+    .set_endpoint(os.getenv('APPWRITE_ENDPOINT'))
+    .set_project(os.getenv('APPWRITE_PROJECT_ID'))
+    .set_key(os.getenv('APPWRITE_API_KEY'))
+    .set_self_signed(True)
+)
+users = Users(client)
+
+
