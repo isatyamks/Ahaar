@@ -18,11 +18,28 @@ The inspiration for Ahaar comes from the urgent need to address the growing issu
 
 ## Tech Stack  
 
-Ahaar is built with the **Gemini Model** and **Foodvisor Model** for initial food detection, further enhanced by a custom-trained model focused on Indian foods to ensure cultural relevance and accuracy. **TensorFlow** was used for model building and training, with **NumPy** and **Pandas** for data manipulation and analysis, and **Seaborn** for visualizing model performance metrics. The application integrates with **Flask** as the backend framework, while **HTML**, **CSS**, **Python**, and **JavaScript** power the frontend, creating a seamless and interactive experience for users.
+1. **AI Models**:
+   - Gemini Model
+   - Foodvisor Model
+   - Custom-trained model focused on Indian foods (in progress)
+
+2. **Frameworks**:
+   - Flask (backend framework)
+
+3. **Libraries**:
+   - TensorFlow (for model building and training)
+   - NumPy (for data manipulation)
+   - Pandas (for data analysis)
+   - Seaborn (for visualizing model performance metrics)
+
+4. **Frontend Technologies**:
+   - HTML
+   - CSS
+   - JavaScript
 
 ## Project Repo  
 
-[https://github.com/isatyamks/htf24-hackathon-submissions/tree/Ahaar](https://github.com/isatyamks/htf24-hackathon-submissions/tree/Ahaar)
+[https://github.com/isatyamks/htf24-hackathon-submissions/tree/Ahaar](https://github.com/isatyamks/Ahaar)
 
 ## Demo Video/Photos  
 
