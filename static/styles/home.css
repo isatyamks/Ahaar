@@ -77,7 +77,7 @@ body {
 }
 
 #responseText {
-    background: rgba(4, 0, 255, 0.1);
+    background: rgba(250, 254, 15, 0.836);
     padding: 10px; /* Reduced padding to save vertical space */
     border-radius: 8px;
     text-align: left;

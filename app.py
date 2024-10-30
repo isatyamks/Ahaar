@@ -88,20 +88,20 @@ def index():
         input_prompt = """
         You are an expert nutritionist tasked with analyzing food items from an image. Your goal is to provide detailed nutritional information for each unique food item identified, including total calories and protein content. If there are multiple quantities of the same item, list the total quantity along with its nutritional information. Please present the information in the following format:
 
-        **Food Items:**
+        Detected Food Items:
         1. Item 1 (Quantity: [quantity]) - [calories] calories, [protein]g protein
         2. Item 2 (Quantity: [quantity]) - [calories] calories, [protein]g protein
         3. Item 3 (Quantity: [quantity]) - [calories] calories, [protein]g protein
         ----
         [Continue for additional unique items]
 
-        **Disease Risks:**
+        Disease Risks:
         Please assess the potential health risks associated with these food items, considering factors such as high sugar, fat content, and other relevant nutritional information.
 
-        **Health Assessment:**
+        Health Assessment:
         Based on the analysis, indicate whether the food items are considered healthy or unhealthy. Provide a brief explanation of your assessment.
 
-        **Healthy Alternatives:**
+        Healthy Alternatives:
         Suggest healthier alternatives to the identified food items in the following format:
         1. Alternative Item 1 (Quantity: [quantity]) - [calories] calories, [protein]g protein
         2. Alternative Item 2 (Quantity: [quantity]) - [calories] calories, [protein]g protein
