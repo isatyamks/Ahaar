@@ -38,5 +38,7 @@ The inspiration for Ahaar comes from the urgent need to address the growing issu
 
 ## Demo Video/Photos  
 
-[Watch the Demo Video](data\video\Recording 2024-10-31 032254.mp4)
+[Watch the Demo Video](data\video\Recording%202024-10-31%20032254.mp4)
+
+![Demo Video](data\video\Recording%202024-10-31%20032254.mp4)
 
