@@ -36,9 +36,10 @@ The inspiration for Ahaar comes from the urgent need to address the growing issu
 
 [https://github.com/isatyamks/Ahaar](https://github.com/isatyamks/Ahaar)
 
-## Demo Video/Photos  
+## Demo Video  
 
-[Watch the Demo Video](data\video\Recording%202024-10-31%20032254.mp4)
+[![Watch the Demo Video](https://img.youtube.com/vi/ye6rU7BnZT4/0.jpg)](https://youtu.be/ye6rU7BnZT4)
 
-![Demo Video](data\video\Recording%202024-10-31%20032254.mp4)
+
+
 
