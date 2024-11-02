@@ -6,9 +6,9 @@ from appwrite.id import ID
 from functools import wraps
 import google.generativeai as genai
 import os
-# Initialize Flask app
+
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Change this to a random secret key
+app.secret_key = 'idiot!'  
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
 
@@ -59,16 +59,14 @@ def input_image_setup(image_path):
 
 
 
-# Decorator to require login
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        if 'user' not in session:  # Check if user is in session
+        if 'user' not in session:  
             return redirect(url_for('login'))
         return f(*args, **kwargs)
     return decorated_function
 
-# Route for home page
 
 @app.route('/', methods=['GET', 'POST'])
 @login_required
@@ -125,11 +123,8 @@ def login():
         email = request.form['email']
         password = request.form['password']
         
-        # Authenticate the user (this should be implemented according to Appwrite API)
-        # Example: Use the Appwrite login method here
-        
-        # Assuming login was successful:
-        session['user'] = email  # Save user info in session
+
+        session['user'] = email  
         flash('Login successful!', 'success')
         return redirect(url_for('index'))
     
@@ -145,7 +140,7 @@ def signup():
         
         try:
             result = users.create(ID.unique(), email=email, password=password, name=name)
-            session['user'] = email  # Save user info in session
+            session['user'] = email 
             flash('Signup successful!', 'success')
             return redirect(url_for('index'))
         except Exception as e:
@@ -157,12 +152,11 @@ def signup():
 @app.route('/logout', methods=['POST'])
 @login_required
 def logout():
-    session.pop('user', None)  # Optional: Remove user from session
-    flash('You have been logged out.', 'info')  # Flash a message
-    return redirect(url_for('login'))  # Redirect to the login page
+    session.pop('user', None)  
+    flash('You have been logged out.', 'info')  
+    return redirect(url_for('login'))  
 
 
-# Run the application
 if __name__ == '__main__':
     app.run(debug=True)
 
